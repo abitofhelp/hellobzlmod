@@ -1,0 +1,19 @@
+# When Bzlmod is enabled, this file marks the root of the Bazel workspace.
+# See MODULE.bazel for dependencies and setup.
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+#http_archive(
+#    name = "googleapi",
+#    sha256 = "5abf56b8df52ef94b51b313271cc9a55185b53449e85dc77e972162dbc6fe769",
+#    strip_prefix = "googleapis-master/",
+#    url = "https://github.com/googleapis/googleapis/archive/refs/heads/master.zip",
+#)
+
+http_archive(
+    name = "googleapi",
+    build_file = "BUILD.googleapis",
+    sha256 = "5abf56b8df52ef94b51b313271cc9a55185b53449e85dc77e972162dbc6fe769",
+    strip_prefix = "googleapis-master/",
+    url = "https://github.com/googleapis/googleapis/archive/refs/heads/master.zip",
+)

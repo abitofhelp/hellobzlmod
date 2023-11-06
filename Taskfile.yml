@@ -1,0 +1,33 @@
+version: '3'
+
+vars:
+  PROJECT_DIR: "$GOPATH/src/github.com/abitofhelp/hellobzlmod"
+  PROTO_DIR: "{{.PROJECT_DIR}}/proto"
+
+tasks:
+  baz_add_go_module:
+    cmds:
+      - bazel run @io_bazel_rules_go//go -- get github.com/stretchr/testify@v1.8.4
+      - task: gazelle_update_repos
+  baz_build_all:
+    cmd: bazel build --sandbox_debug //...
+  baz_clean:
+    cmds:
+      - bazel clean --expunge --async
+      - rm -rf proto/abitofhelp/api/helloworld/v1/BUILD.bazel
+  baz_mod_tidy:
+    cmd: bazel run @io_bazel_rules_go//go -- mod tidy -v
+  baz_list:
+    cmd: bazel query //...
+  baz_test:
+    cmd: bazel test //...
+
+  bf_fmt:
+    cmd: buildifier -r ./ # bazel run -- @buildifier_prebuilt//:buildifier ARGS
+  bf_lint:
+    cmd: bazel run //:buildifier.check
+
+  gazelle_generate_repos:
+    cmd: bazel run //:gazelle
+  gazelle_update_repos:
+    cmd: bazel run //:gazelle-update-repos -- -from_file=go.mod -to_macro=deps.bzl%go_dependencies -prune

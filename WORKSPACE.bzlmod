@@ -5,15 +5,24 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 #http_archive(
 #    name = "googleapi",
+#    build_file = "//:BUILD.bazel",
 #    sha256 = "5abf56b8df52ef94b51b313271cc9a55185b53449e85dc77e972162dbc6fe769",
 #    strip_prefix = "googleapis-master/",
 #    url = "https://github.com/googleapis/googleapis/archive/refs/heads/master.zip",
 #)
 
-http_archive(
-    name = "googleapi",
-    build_file = "BUILD.googleapis",
-    sha256 = "5abf56b8df52ef94b51b313271cc9a55185b53449e85dc77e972162dbc6fe769",
-    strip_prefix = "googleapis-master/",
-    url = "https://github.com/googleapis/googleapis/archive/refs/heads/master.zip",
-)
+#http_archive(
+#    name = "googleapi",
+#    build_file = "//:BUILD.googleapis",
+#    sha256 = "5abf56b8df52ef94b51b313271cc9a55185b53449e85dc77e972162dbc6fe769",
+#    strip_prefix = "googleapis-master/",
+#    url = "https://github.com/googleapis/googleapis/archive/refs/heads/master.zip",
+#)
+
+#http_archive(
+#    name = "com_google_googleapis",
+#    urls = ["https://github.com/googleapis/googleapis/archive/refs/heads/master.zip"],
+#    build_file = "//:BUILD.googleapis",
+#    strip_prefix = "googleapis-master",
+#    patch_cmds = ["find google -type f -name BUILD.bazel -delete"],
+#)

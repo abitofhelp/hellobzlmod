@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package abitofhelp.api.helloworld.v1;
 
-import "google/api/annotations.proto";
+import "proto/google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
 
 // The greeting service definition

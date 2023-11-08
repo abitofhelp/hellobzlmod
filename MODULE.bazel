@@ -4,6 +4,15 @@ module(
     compatibility_level = 1,
 )
 
+#http_archive(
+#    name = "mygoogleapis",
+#    #build_file = "@//google/api/BUILD.bazel",
+#    build_file_content = "proto_library(name = 'annotations_proto', srcs = ['google/api/annotations.proto'])",
+#    sha256 = "5abf56b8df52ef94b51b313271cc9a55185b53449e85dc77e972162dbc6fe769",
+#    strip_prefix = "googleapis-master/",
+#    url = "https://github.com/googleapis/googleapis/archive/refs/heads/master.zip",
+#)
+
 bazel_dep(name = "buildifier_prebuilt", version = "6.3.3", dev_dependency = True)
 bazel_dep(name = "gazelle", version = "0.33.0") #, repo_name = "bazel_gazelle"
 bazel_dep(name = "grpc", version = "1.48.1")
@@ -13,6 +22,9 @@ bazel_dep(name = "rules_proto", version = "5.3.0-21.7")
 
 #bazel_dep(name = "remoteapis", version = "")
 #bazel_dep(name = "googleapis", version = "")
+
+
+
 
 go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")
 

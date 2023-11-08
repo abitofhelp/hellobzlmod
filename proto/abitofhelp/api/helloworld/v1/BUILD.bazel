@@ -17,18 +17,18 @@ proto_library(
     ],
 )
 
-#go_proto_library(
-#    name = "abitofhelp_api_helloworld_v1_go_proto",
-#    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
-#    importpath = "github.com/abitofhelp/hellobzlmod/proto/abitofhelp/api/helloworld/v1",
-#    proto = ":abitofhelp_api_helloworld_v1_proto",
-#    visibility = ["//visibility:public"],
-#    deps = ["//proto/google/api:annotations_go_proto"],
-#)
-#
-#go_library(
-#    name = "helloworld",
-#    embed = [":abitofhelp_api_helloworld_v1_go_proto"],
-#    importpath = "github.com/abitofhelp/hellobzlmod/proto/abitofhelp/api/helloworld/v1",
-#    visibility = ["//visibility:public"],
-#)
+go_proto_library(
+    name = "abitofhelp_api_helloworld_v1_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    importpath = "github.com/abitofhelp/hellobzlmod/proto/abitofhelp/api/helloworld/v1",
+    proto = ":abitofhelp_api_helloworld_v1_proto",
+    visibility = ["//visibility:public"],
+    deps = ["//proto/google/api:annotations_go_proto"],
+)
+
+go_library(
+    name = "helloworld",
+    embed = [":abitofhelp_api_helloworld_v1_go_proto"],
+    importpath = "github.com/abitofhelp/hellobzlmod/proto/abitofhelp/api/helloworld/v1",
+    visibility = ["//visibility:public"],
+)

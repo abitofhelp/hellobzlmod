@@ -8,7 +8,7 @@ func main() {
 	//	Nanos:   int32(now.Nanosecond()),
 	//}
 	//
-	//req := v1.HelloRequest{
+	//req := HelloRequest{
 	//	Name:    "Mikie",
 	//	SentUtc: &timestamp,
 	//}

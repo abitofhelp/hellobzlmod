@@ -8,12 +8,8 @@ proto_library(
     srcs = ["hello_world.proto"],
     visibility = ["//visibility:public"],
     deps = [
-        #"//proto/google/api:api_proto",
-        "//proto/google/api:annotations_proto",
-        #        "//proto/google/api:annotations_proto",
-        #        "//proto/google/api:http_proto",
-        #        "//proto/google/api:httpbody_proto",
         "@com_google_protobuf//:timestamp_proto",
+        "@googleapis//google/api:annotations_proto",
     ],
 )
 
@@ -23,7 +19,7 @@ go_proto_library(
     importpath = "github.com/abitofhelp/hellobzlmod/proto/abitofhelp/api/helloworld/v1",
     proto = ":abitofhelp_api_helloworld_v1_proto",
     visibility = ["//visibility:public"],
-    deps = ["//proto/google/api:annotations_go_proto"],
+    deps = ["//vendor/google.golang.org/genproto/googleapis/api/annotations"],
 )
 
 go_library(
